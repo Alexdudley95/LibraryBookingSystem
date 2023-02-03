@@ -13,18 +13,30 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What would you like to do? Input New Book = I, Search Book = S, Exit = X");
         String scan = scanner.next();
-        //TODO set this up ^^
+        if (scan.equalsIgnoreCase("I")){
+            System.out.println("Input Title: ");
+            Scanner bookTitle = new Scanner(System.in);
+            String titleInput = bookTitle.next();
+            System.out.println("Input Author: ");
+            Scanner bookAuthor = new Scanner(System.in);
+            String authorInput = bookAuthor.next();
+            System.out.println("Input Genre: ");
+            Scanner bookGenre = new Scanner(System.in);
+            String genreInput = bookGenre.next();
+            //end of input
+            BookObject newBook = BookIndex.pushBookInfo(bookHash, titleInput, authorInput, genreInput);
+            bookHash.put(newBook.getIndexNumber(), newBook);
+            Main.startState(bookHash);
+        } else if(scan.equalsIgnoreCase("S")){
+            String output = BookIndex.indexLookUp(bookHash);
+            System.out.println(output);
+            Main.startState(bookHash);
+        }
+        else if (scan.equalsIgnoreCase("X")) {
+            System.out.println("Exiting...");
+            System.exit(1);
+        }
 
-        System.out.println("Input Title: ");
-        Scanner bookTitle = new Scanner(System.in);
-        String titleInput = bookTitle.next();
-        System.out.println("Input Author: ");
-        Scanner bookAuthor = new Scanner(System.in);
-        String authorInput = bookAuthor.next();
-        System.out.println("Input Genre: ");
-        Scanner bookGenre = new Scanner(System.in);
-        String genreInput = bookGenre.next();
 
-        BookIndex.pushBookInfo(bookHash, titleInput, authorInput, genreInput);
     }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BookIndex {
 
-    public static int pushBookInfo(HashMap<Integer, BookObject> bookingInfo, String titleInput, String authorInput, String genreInput){
+    public static BookObject pushBookInfo(HashMap<Integer, BookObject> bookingInfo, String titleInput, String authorInput, String genreInput){
         BookObject newBook = new BookObject();
         newBook.setBookTitle(titleInput);
         newBook.setBookAuthor(authorInput);
@@ -14,7 +14,7 @@ public class BookIndex {
         newBook.setIndexNumber();
         System.out.println("The books index number is: " + newBook.getIndexNumber());
         // Main.startState(bookingInfo);
-        return newBook.getIndexNumber();
+        return newBook;
     }
 
     public static String indexLookUp (HashMap<Integer, BookObject> bookingInfo){
@@ -22,7 +22,7 @@ public class BookIndex {
         Scanner scan = new Scanner(System.in);
         int inputNum = scan.nextInt();
         BookObject bookLookUp = bookingInfo.get(inputNum);
-
-        return (bookLookUp.getIndexNumber()+ ": The book is" + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+        System.out.println(bookLookUp.getBookTitle());
+        return (bookLookUp.getIndexNumber()+ ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
     }
 }
