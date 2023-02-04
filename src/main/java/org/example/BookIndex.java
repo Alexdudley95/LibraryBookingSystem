@@ -25,4 +25,18 @@ public class BookIndex {
         System.out.println(bookLookUp.getBookTitle());
         return (bookLookUp.getIndexNumber()+ ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
     }
+
+    public static String indexNameLookUp(HashMap<Integer, BookObject> bookingInfo){
+        System.out.println("Input title of book: ");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.next();
+        BookObject newBook = new BookObject();
+        newBook.setBookTitle(input);
+        newBook.setIndexNumber();
+        int indexNum = newBook.getIndexNumber();
+
+        BookObject bookLookUp = bookingInfo.get(indexNum);
+
+        return (bookLookUp.getIndexNumber()+ ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+    }
 }

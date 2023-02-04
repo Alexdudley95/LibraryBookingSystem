@@ -28,8 +28,17 @@ public class Main {
             bookHash.put(newBook.getIndexNumber(), newBook);
             Main.startState(bookHash);
         } else if(scan.equalsIgnoreCase("S")){
-            String output = BookIndex.indexLookUp(bookHash);
-            System.out.println(output);
+            Scanner searchScan = new Scanner(System.in);
+            String scan3 = searchScan.next();
+
+             if(scan3.equalsIgnoreCase("T")){
+                 String output = BookIndex.indexNameLookUp(bookHash);
+                 System.out.println(output);
+              }else if (scan3.equalsIgnoreCase("N")){
+                 String output = BookIndex.indexLookUp(bookHash);
+                 System.out.println(output);
+              }
+
             Main.startState(bookHash);
         }
         else if (scan.equalsIgnoreCase("X")) {
