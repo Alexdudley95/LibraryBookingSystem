@@ -31,6 +31,11 @@ public class BookObject {
         this.bookGenre = bookGenre;
     }
 
+    public int setIndexNumber(int indexNum){
+        this.indexNumber = indexNum;
+        return this.indexNumber;
+    }
+
     public int setIndexNumber(){
         //TODO Add Tests to this section
         String letterList1 = "ABCDEFGH";
