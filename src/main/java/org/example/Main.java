@@ -27,7 +27,9 @@ public class Main {
             BookObject newBook = BookIndex.pushBookInfo(bookHash, titleInput, authorInput, genreInput);
             bookHash.put(newBook.getIndexNumber(), newBook);
             Main.startState(bookHash);
+
         } else if(scan.equalsIgnoreCase("S")){
+            System.out.println("Search via Index number: " + "N" + " Search via Title: " + "T");
             Scanner searchScan = new Scanner(System.in);
             String scan3 = searchScan.next();
 
@@ -39,7 +41,7 @@ public class Main {
                  System.out.println(output);
               }
 
-            Main.startState(bookHash);
+            //Main.startState(bookHash);
         }
         else if (scan.equalsIgnoreCase("X")) {
             System.out.println("Exiting...");

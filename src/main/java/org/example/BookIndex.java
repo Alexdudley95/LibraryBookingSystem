@@ -17,13 +17,20 @@ public class BookIndex {
         return newBook;
     }
 
-    public static String indexLookUp (HashMap<Integer, BookObject> bookingInfo){
+    public static String indexLookUp (HashMap<Integer, BookObject> bookingInfo) {
         System.out.println("Search via index number: ");
         Scanner scan = new Scanner(System.in);
         int inputNum = scan.nextInt();
-        BookObject bookLookUp = bookingInfo.get(inputNum);
-        System.out.println(bookLookUp.getBookTitle());
-        return (bookLookUp.getIndexNumber()+ ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+            try {
+                BookObject bookLookUp = bookingInfo.get(inputNum);
+                System.out.println(bookLookUp.getBookTitle());
+                return (bookLookUp.getIndexNumber() + ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+            } catch (NullPointerException e){
+                return "Book is null";
+            }
+
+
+
     }
 
     public static String indexNameLookUp(HashMap<Integer, BookObject> bookingInfo){
@@ -36,7 +43,10 @@ public class BookIndex {
         int indexNum = newBook.getIndexNumber();
 
         BookObject bookLookUp = bookingInfo.get(indexNum);
-
-        return (bookLookUp.getIndexNumber()+ ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+        try {
+            return (bookLookUp.getIndexNumber() + ": The book is: " + bookLookUp.getBookTitle() + " By " + bookLookUp.getBookAuthor() + " and the genre is " + bookLookUp.getBookGenre());
+        }catch ( NullPointerException e){
+            return "Book is null";
+        }
     }
 }
