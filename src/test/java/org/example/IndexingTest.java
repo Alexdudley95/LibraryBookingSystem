@@ -19,5 +19,8 @@ public class IndexingTest {
         assertEquals(48, newBook.setIndexNumber());
         newBook.setBookTitle("Moby Dick");
         assertNotEquals(50, newBook.setIndexNumber());
+        newBook.setBookTitle("@@");
+        assertEquals(8, newBook.setIndexNumber());
     }
+
 }
